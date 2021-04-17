@@ -6,6 +6,8 @@
 
 ### 🎉 New features
 
+- Testing automatic code reviews
+
 ### 🐛 Bug fixes
 
 ## 12.0.4 — 2021-04-13
