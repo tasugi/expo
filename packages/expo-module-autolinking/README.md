@@ -1,29 +1,9 @@
 # expo-module-autolinking
 
-Contains scripts that autolink Expo modules.
+This package contains the core implementation of Expo Modules Autolinking and is a successor of `react-native-unimodules`. Autolinking is a process consisting of searching native modules in your project's `node_modules` paths and installing them automatically. It's is mainly used internally by `@unimodules/react-native-adapter` package which contains platform-specific wrappers (for CocoaPods and Gradle).
 
-# API documentation
-
-- [Documentation for the master branch](https://github.com/expo/expo/blob/master/docs/pages/versions/unversioned/sdk/module-autolinking.md)
-- [Documentation for the latest stable release](https://docs.expo.io/versions/latest/sdk/module-autolinking/)
-
-# Installation in managed Expo projects
-
-For managed [managed](https://docs.expo.io/versions/latest/introduction/managed-vs-bare/) Expo projects, please follow the installation instructions in the [API documentation for the latest stable release](#api-documentation). If you follow the link and there is no documentation available then this library is not yet usable within managed projects &mdash; it is likely to be included in an upcoming Expo SDK release.
-
-# Installation in bare React Native projects
-
-For bare React Native projects, you must ensure that you have [installed and configured the `react-native-unimodules` package](https://github.com/expo/expo/tree/master/packages/react-native-unimodules) before continuing.
-
-### Add the package to your npm dependencies
-
-```
-npm install expo-module-autolinking
-```
-
-
-
+In fact, it can also be used separately, as a CLI tool. For more informations about available commands and options run `yarn run expo-module-autolinking --help` or `npx expo-module-autolinking --help`.
 
 # Contributing
 
-Contributions are very welcome! Please refer to guidelines described in the [contributing guide]( https://github.com/expo/expo#contributing).
+Contributions are very welcome! Please refer to guidelines described in the [contributing guide](https://github.com/expo/expo#contributing).
