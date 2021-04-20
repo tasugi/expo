@@ -24,12 +24,25 @@ class ExpoModule {
 }
 
 class ExpoAutolinkingManager {
+  // Directory of the project where the script is applied on.
   private File projectDir
+
+  // Map of optional autolinking options containing the following properties:
+  // - searchPaths: An array of paths to search the modules for
+  // - ignorePaths: Paths to ignore in searching
+  // - exclude: An array of names of the packages to ignore
   private Map options
+
   private Object cachedResolvingResults
 
+  // Android's package namespace under which the list of autolinked packages will be generated.
   static String generatedPackageListNamespace = 'org.unimodules.adapters.react'
+
+  // Name of the generated package list.
   static String generatedPackageListFilename = 'ExpoModulesPackageList.java'
+
+  // Directory in which the package list will be generated.
+  // Relative to `@unimodules/react-native-adapter` node module path.
   static String generatedFilesSrcDir = 'generated/expo/src/main/java'
 
   ExpoAutolinkingManager(File projectDir, Map options = [:]) {

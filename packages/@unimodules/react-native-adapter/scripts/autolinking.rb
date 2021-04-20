@@ -1,6 +1,10 @@
 require 'json'
 require 'pathname'
 
+# Map of optional autolinking options containing the following properties:
+# - searchPaths: An array of paths to search the modules for
+# - ignorePaths: Paths to ignore in searching
+# - exclude: An array of names of the packages to ignore
 def use_expo_modules!(custom_options = {})
   # `self` points to Pod::Podfile object
   Autolinking.new(self, @current_target_definition).useExpoModules!(custom_options)
