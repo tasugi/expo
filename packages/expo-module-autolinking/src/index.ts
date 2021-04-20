@@ -1,4 +1,5 @@
 import commander from 'commander';
+import util from 'util';
 
 import {
   findModulesAsync,
@@ -55,7 +56,7 @@ function registerResolveCommand<OptionsType extends ResolveOptions>(
 module.exports = async function(args: string[]) {
   // Searches for available expo modules.
   registerSearchCommand('search', async results => {
-    console.log(require('util').inspect(results, false, null, true));
+    console.log(util.inspect(results, false, null, true));
   });
 
   // Checks whether there are no resolving issues in the current setup.
