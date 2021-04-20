@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const commander_1 = __importDefault(require("commander"));
+const util_1 = __importDefault(require("util"));
 const autolinking_1 = require("./autolinking");
 /**
  * Registers a command that only searches for available expo modules.
@@ -31,7 +32,7 @@ function registerResolveCommand(commandName, fn) {
 module.exports = async function (args) {
     // Searches for available expo modules.
     registerSearchCommand('search', async (results) => {
-        console.log(require('util').inspect(results, false, null, true));
+        console.log(util_1.default.inspect(results, false, null, true));
     });
     // Checks whether there are no resolving issues in the current setup.
     registerSearchCommand('verify', results => {
