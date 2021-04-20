@@ -50,7 +50,7 @@ class Autolinking
       # Install the pod.
       @podfile.pod podName, podOptions
 
-      # Can remove this once we move all the interfaces into the core.
+      # TODO (@tsapeta): remove this once we move all the interfaces into the core.
       next if podName.end_with?('Interface')
 
       puts "— #{Colors.GREEN}#{packageName}#{Colors.RESET} (#{packageVersion})"

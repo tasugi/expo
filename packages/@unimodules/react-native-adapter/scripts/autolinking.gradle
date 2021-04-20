@@ -163,7 +163,7 @@ if (rootProject instanceof ProjectDescriptor) {
 
       project.dependencies.add('api', dependency)
 
-      // Can remove this once we move all the interfaces into the core.
+      // TODO (@tsapeta):  remove this once we move all the interfaces into the core.
       if (dependency.name.endsWith('-interface')) {
         continue
       }

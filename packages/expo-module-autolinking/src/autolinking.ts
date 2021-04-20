@@ -24,7 +24,7 @@ export async function resolveSearchPathsAsync(
   searchPaths: string[] | null,
   cwd: string
 ): Promise<string[]> {
-  return searchPaths && searchPaths.length > 0
+  return searchPaths?.length > 0
     ? searchPaths.map(searchPath => path.resolve(cwd, searchPath))
     : await findDefaultPathsAsync(cwd);
 }
@@ -108,12 +108,11 @@ export async function mergeLinkingOptionsAsync<OptionsType extends SearchOptions
   const packageJson = packageJsonPath ? require(packageJsonPath) : {};
   const baseOptions = packageJson.expo?.autolinking;
   const platformOptions = providedOptions.platform && baseOptions?.[providedOptions.platform];
-  const finalOptions = Object.assign(
-    {},
-    baseOptions,
-    platformOptions,
-    providedOptions
-  ) as OptionsType;
+  const finalOptions = {
+    ...baseOptions,
+    ...platformOptions,
+    ...providedOptions
+  } as OptionsType;
 
   // Makes provided paths absolute or falls back to default paths if none was provided.
   finalOptions.searchPaths = await resolveSearchPathsAsync(finalOptions.searchPaths, process.cwd());
