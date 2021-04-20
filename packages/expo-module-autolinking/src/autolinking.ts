@@ -24,7 +24,7 @@ export async function resolveSearchPathsAsync(
   searchPaths: string[] | null,
   cwd: string
 ): Promise<string[]> {
-  return searchPaths?.length > 0
+  return searchPaths && searchPaths.length > 0
     ? searchPaths.map(searchPath => path.resolve(cwd, searchPath))
     : await findDefaultPathsAsync(cwd);
 }
@@ -40,7 +40,7 @@ export async function findPackageJsonPathAsync(): Promise<string | null> {
  * Looks up for workspace's `node_modules` paths.
  */
 export async function findDefaultPathsAsync(cwd: string): Promise<string[]> {
-  const paths = [];
+  const paths: string[] = [];
   let dir = cwd;
   let pkgJsonPath: string | undefined;
 
@@ -111,7 +111,7 @@ export async function mergeLinkingOptionsAsync<OptionsType extends SearchOptions
   const finalOptions = {
     ...baseOptions,
     ...platformOptions,
-    ...providedOptions
+    ...providedOptions,
   } as OptionsType;
 
   // Makes provided paths absolute or falls back to default paths if none was provided.

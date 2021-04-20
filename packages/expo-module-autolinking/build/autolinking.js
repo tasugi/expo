@@ -88,7 +88,11 @@ async function mergeLinkingOptionsAsync(providedOptions) {
     const packageJson = packageJsonPath ? require(packageJsonPath) : {};
     const baseOptions = packageJson.expo?.autolinking;
     const platformOptions = providedOptions.platform && baseOptions?.[providedOptions.platform];
-    const finalOptions = Object.assign({}, baseOptions, platformOptions, providedOptions);
+    const finalOptions = {
+        ...baseOptions,
+        ...platformOptions,
+        ...providedOptions,
+    };
     // Makes provided paths absolute or falls back to default paths if none was provided.
     finalOptions.searchPaths = await resolveSearchPathsAsync(finalOptions.searchPaths, process.cwd());
     return finalOptions;
